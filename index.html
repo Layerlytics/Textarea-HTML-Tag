@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text Formatting Tags in HTML</title>
+
+    <!-- Prism.js -->
+    <link href="vendors/css/prism-one-dark.css" rel="stylesheet" />
+    <link href="vendors/css/prism-line-numbers.css" rel="stylesheet" />
+    <script src="vendors/js/prism.min.js"></script>
+    <script src="vendors/js/prism-markup.min.js"></script>
+    <script src="vendors/js/prism-line-numbers.min.js"></script>
+
+    <!-- Clipboard.js -->
+    <script src="vendors/js/clipboard.min.js"></script>
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="code-demo-container">
+            <!-- Code Panel -->
+            <section class="panel code-panel" aria-label="Code panel">
+                <div class="title-bar" role="banner">
+                    <div class="dots" aria-hidden="true">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+
+                    <div class="file-info" title="table.html">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                            alt="HTML icon">
+                        <strong>Textarea.html</strong>
+                    </div>
+
+                    <!-- ✅ Premium Copy Button with Fixed Animation -->
+                    <button class="copy-btn" data-clipboard-target="#myCode">
+                        <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Copy</span>
+                    </button>
+                </div>
+
+                <pre class="code-block line-numbers"><code id="myCode" class="language-markup">&lt;label for="feedback"&gt;Your Feedback:&lt;/label&gt;&lt;br&gt;
+&lt;textarea id="feedback" name="feedback" rows="5" cols="40"&gt;This website is really helpful and easy to use!&lt;/textarea&gt;</code></pre>
+
+
+            </section>
+
+            <!-- Demo Panel -->
+            <section class="panel demo-panel" aria-label="Demo panel">
+                <div class="title-bar" role="banner">
+                    <div class="dots" aria-hidden="true">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+
+                    <div class="file-info">
+                        <img src="assets/img/html5-original.svg" alt="HTML icon">
+                        <strong>Textarea.html (Preview)</strong>
+                    </div>
+                </div>
+
+                <div class="demo-body">
+                    <iframe id="demoIframe" src="preview/Textarea.html" title="Live preview"></iframe>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Main Script -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,267 @@
+/* === Utils === */
+:root {
+    --radius: 12px;
+    --titlebar-h: 48px;
+    --gap: 20px;
+    --primary: #6d5dfc;
+    --accent: #00fff0;
+    --success: #00ffb3;
+    --text: #ffffff;
+    --bg: rgba(255, 255, 255, 0.06);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
+    background: #f5f7fa;
+    color: #222;
+}
+
+h1 {
+    margin: 0;
+    padding: 1rem 0;
+    text-align: center;
+    background: #0d6efd;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* === Pannels === */
+.wrap {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.code-demo-container {
+    display: flex;
+    gap: var(--gap);
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    height: 100vh;
+}
+
+.code-panel,
+.demo-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.panel {
+    flex: 1 1 calc(50% - var(--gap)/2);
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 0;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.title-bar {
+    height: var(--titlebar-h);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: #2d2d2d;
+    color: #ddd;
+    border-top-left-radius: var(--radius);
+    border-top-right-radius: var(--radius);
+    padding: 0 56px;
+    flex-shrink: 0;
+}
+
+.code-panel .title-bar {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.dots {
+    position: absolute;
+    left: 12px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot.red {
+    background: #ff5f57;
+}
+
+.dot.yellow {
+    background: #febc2e;
+}
+
+.dot.green {
+    background: #28c840;
+}
+
+.file-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    color: #ddd;
+}
+
+.file-info img {
+    width: 18px;
+    height: 18px;
+    display: block;
+}
+
+/* === Copy Button === */
+.copy-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text);
+    font-size: 13px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+    backdrop-filter: blur(12px);
+}
+
+.copy-btn:hover {
+    transform: translateY(-50%) scale(1.05);
+    border-color: var(--accent);
+    box-shadow: 0 0 15px rgba(0, 255, 240, 0.25);
+}
+
+.copy-btn svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--text);
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.35s ease, stroke 0.35s ease;
+}
+
+/* ✨ Fixed, Smooth SVG Animation ✨ */
+.copy-btn:hover .copy-icon {
+    transform: translateY(-2px) rotate(6deg);
+    stroke: var(--accent);
+}
+
+.copy-btn .check-icon {
+    position: absolute;
+    opacity: 0;
+    width: 16px;
+    height: 16px;
+    stroke: var(--success);
+    stroke-width: 2;
+    fill: none;
+    stroke-dasharray: 25;
+    stroke-dashoffset: 25;
+    transition: opacity 0.2s ease, stroke-dashoffset 0.5s ease;
+}
+
+.copy-btn.copied {
+    color: var(--success);
+    border-color: var(--success);
+    box-shadow: 0 0 20px rgba(0, 255, 179, 0.25);
+}
+
+.copy-btn.copied .copy-icon {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.copy-btn.copied .check-icon {
+    opacity: 1;
+    stroke-dashoffset: 0;
+}
+
+/* === Code Snippet === */
+pre.code-block {
+    margin: 0;
+    padding: 18px;
+    background: #1e1e1e;
+    color: #f1f1f1;
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-word;
+    flex: 1 1 auto;
+    overflow: auto;
+}
+
+pre.code-block.line-numbers {
+    padding-left: 3.5em !important;
+    overflow: auto;
+}
+
+.demo-panel {
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.demo-body {
+    flex: 1 1 auto;
+    overflow: auto;
+    padding: 0;
+    background: #fff;
+}
+
+.demo-body iframe {
+    width: 100%;
+    border: 0;
+    display: block;
+    min-height: 100%;
+}
+
+@media (max-width: 768px) {
+    .code-demo-container {
+        flex-direction: column;
+        gap: 12px;
+        height: auto;
+    }
+
+    .panel {
+        width: 100%;
+        height: 50vh;
+    }
+
+    pre.code-block,
+    .demo-body {
+        height: calc(50vh - var(--titlebar-h));
+        overflow: auto;
+    }
+
+    .demo-body iframe {
+        min-height: calc(50vh - var(--titlebar-h));
+    }
+}
+
+.note {
+    text-align: center;
+    color: #444;
+    margin: 12px 0;
+    font-size: 13px;
+}
+
+/* === Remove unwanted grey background lines === */
+pre[class*="language-"] code {
+    background: none !important;
+}
